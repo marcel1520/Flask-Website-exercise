@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 
 
 app = Flask(__name__)
@@ -9,31 +9,36 @@ JOBS = [
         'id': 1,
         'title': 'Web Design',
         'location': "Paris, France",
-        'salary': "€100000"
+        'salary': "€100.000"
     },
 {
         'id': 2,
         'title': 'Frontend Engineer',
         'location': "Wien, Austria",
-        'salary': "€90000"
+        'salary': "€90.000"
     },
 {
         'id': 3,
         'title': 'Backend Engineer',
         'location': "Remote",
-        'salary': "€110000"
+
     },
 {
         'id': 4,
         'title': 'Cloud Engineer',
         'location': "San Fransisco",
-        'salary': "$120000"
-    },
+        'salary': "$120.000"
+    }
 ]
 
 @app.route("/")
 def home():
     return render_template("home.html", jobs=JOBS, company_name="My Company")
+
+@app.route("/api/jobs")
+def list_jobs():
+    return jsonify(JOBS)
+
 
 
 if __name__ == "__main__":
