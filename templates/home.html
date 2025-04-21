@@ -11,28 +11,44 @@
             height: 360px;
             object-fit: cover;
             width: 100%;
+            margin-bottom: 16px;
         }
     </style>
 </head>
 <body>
+    {% include 'nav.html' %}
+    <img class="img-fluid" id="banner" src="http://127.0.0.1:5001/static/banner.jpg" height="320">
     <div class="container">
         <h1 class="text-center mt-2 mt-4" >
-            {{ company_name }} Careers</h1>
-        <img class="img-fluid" id="banner" src="http://127.0.0.1:5001/static/banner.jpg" height="320">
-        <h2 class="text-center mt-2">About {{ company_name }}</h2>
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            {{ company_name }} Careers
+        </h1>
+
+        <div class="row">
+            <div class="col-md-9">
+            <p class="lead" style="margin-top: 30px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div class="d-none d-md-block col-md-3">
+            <img src="http://127.0.0.1:5001/static/work.jpg" alt="work" style="height:300px;border-radius:4px;">
+        </div>
+        </div>
+
+
+        
         <h2 class="text-center mt-2 mt-4">Open Positions</h2>
-        <p>
-            <div>
+
+            <div style="margin: 0 60px">
                 {% for job in jobs %}
                     {% include 'jobitem.html' %}
                 {% endfor %}
             </div>
-        </p>
+
         <div class="text-center">
-            <button class="btn btn-primary btn-lg">Contact us</button>
-            <p class="mt-4">Copyright 2025 {{company_name}}</p>
+            <a href="mailto:marcelmann1520@gmail.com?subject=Question%20about%20Test%20Case&body=Test%20Case%0D%0A%0D%0AMy%20name%3A%20%3Cyour%20name%3E%0D%0AMy%20question%20%3Center%20question%3E" type="button" class="btn btn-primary btn-lg margin-top: 16px;">Contact us</a>
+
         </div>
     </div>
 </body>
+<footer>
+    {% include 'footer.html' %}
+</footer>
 </html>
